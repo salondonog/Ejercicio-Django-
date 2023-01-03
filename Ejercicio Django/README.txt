@@ -1,4 +1,4 @@
-Este es un proyecto creado para la prueba técnica solicitada por la empresa OPA 
+
 Desarrollado por: Sergio Andrés Londoño Guerrero.
 
 Esta desarrollado con la librería django 3.2.5  
@@ -11,8 +11,6 @@ Para correr la aplicación asegúrese de tener instalado python y la librería d
 
 Para modificar las bases de datos de los elementos 
 
-Usuario:OPA
-contraseña:opa012345   
 
 En esta se pueden añadir, eliminar o editar los diferentes elementos que se pueden seleccionar para el viaje. 
 
