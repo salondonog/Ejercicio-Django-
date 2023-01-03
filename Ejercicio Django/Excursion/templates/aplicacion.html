@@ -1,0 +1,72 @@
+{%extends "base.html" %}
+    {% block title %}Optimizar equipaje{% endblock%}
+    {% block main %}
+        <div class="row">
+            <div class="col-sm- 12 col-md-6 col-lg-4 col-xl-4">
+                <h2>Datos del viaje</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/seleccionarelementos/" method="POST"> {% csrf_token %}
+                            <h3>Calorias</h3>
+                            <div class="form-group">
+                                <input type="number" id="numCalorias" name="numCalorias" class="form-control" min="1" value="1" required>
+                            </div>
+                            <div class="form-group">
+                            <h4>Peso</h4>
+                             <input type="number" id="numPeso" name="numPeso" class="form-control" min="1" value="1" required>                               
+                            </div>
+                            <div class="form-group py-2">
+                                <button type="submit" class="btn btn-dark text-white">Generar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+        <div class="col-sm- 12 col-md-6 col-lg-8 col-xl-8">
+        <div class="table-responsive py-2 ">
+            <h1>Listado de elementos</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Calorias</th>
+                        <th>Peso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in elementos%}
+                    <tr>
+                        <td>{{c.ID}}</td>
+                        <td>{{c.nombre}}</td>
+                        <td>{{c.calorias}}</td>
+                        <td>{{c.peso}}</td>
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+            <h4>Listado de elementos Seleccionados</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Calorias</th>
+                        <th>Peso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in selementos%}
+                    <tr>
+                        <td>{{c.ID}}</td>
+                        <td>{{c.nombre}}</td>
+                        <td>{{c.calorias}}</td>
+                        <td>{{c.peso}}</td>
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+        </div>        
+        </div>
+        </div>
+    {% endblock %}
